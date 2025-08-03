@@ -1,0 +1,180 @@
+@import "tailwindcss";
+@font-face {
+    font-family: myfont;
+    src: url(./assets/font/ClashGrotesk-Medium.ttf);
+}
+
+*{
+    font-family: myfont;
+}
+body{
+  background: black;
+  overflow-x: hidden;
+}
+
+.no-scroll-bar::-webkit-scrollbar{
+    display: none;
+}
+
+.no-scroll-bar{
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* mobile nav bar styling*/
+.MobileNav-container{
+    width: 100vw;
+}
+
+
+
+.aboutUs{
+    background: url(./assets/images/hero_background.jpg) rgba(0, 0, 0, 0.862);
+    background-position: center;
+    background-size: cover;
+    background-blend-mode: darken;
+    
+}
+
+.closebtn {
+    font-size: 20px; 
+    cursor: pointer;
+    background-color: transparent; 
+    color: rgb(128, 126, 126);
+    padding: 10px 10px; 
+    border-radius: 9px; 
+    border: 0; 
+    margin-Left: 90%; 
+    margin-top: 5px;
+}
+.openbtn {
+    font-size: 20px; 
+    cursor: pointer;
+    background-color: transparent;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border: none; 
+    border-radius: 9px; 
+    visibility: visible;
+}
+.sidebar li { 
+    padding: 8px 8px 8px 15px; 
+    text-decoration: none; 
+    font-size: 15px;
+    color: #818181;
+    display: block; 
+    transition: 0.3s;
+    text-transform: capitalize;
+}
+.sidebar li:hover {
+    font-size: 1.6em; 
+    font-weight: bold;
+    color: rgb(255, 115, 0); 
+    background-coLor: #f1f1f1;
+    margin: 0px 15px 15px 15px; 
+    border-radius: 8px; 
+    text-decoration: none;
+}
+.openbtn:hover {
+    background-color: #cecece;
+}
+
+#main > b{
+    font-size: 1.5rem;
+    color: white;
+}
+#main > b > span{
+    color: lime;
+}
+
+/* mobile nav bar styline end's here */
+
+.section5{
+  background-color: rgb(249, 247, 238);
+}
+
+.price-container > p{
+  height: 20%;
+  width: 100%;
+  border-top: 1px solid rgb(168, 167, 167);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: capitalize;
+}
+.section4{
+    background: rgb(0, 0, 0);
+  background-position: center bottom;
+  background-size: cover;
+  background-blend-mode: darken;
+}
+
+.image{
+  animation: reveal2 0.5s ease-in-out forwards;
+    opacity: 0;
+}
+.words{
+  animation: reveal 1s ease-in-out forwards;
+    transform: translateY(100px);
+    opacity: 0;
+}
+
+.heading{
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.545), rgb(0, 0, 0)),
+    url('./assets/images/group-diverse-people-having-business-meeting.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.dashboard{
+    width: 100vw;
+    height: 100vh;
+    background: url(../src/assets/images/blurBackground.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+
+@keyframes reveal{
+    0%{
+        opacity: 0;
+        transform: translateY(100px);
+    }
+
+    100%{
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+@keyframes reveal2{
+    0%{
+        opacity: 0;
+        transform: translateY(-100px);
+    }
+
+    100%{
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+@keyframes popIn {
+    0%{
+        opacity: 0.5;
+        transform: scale(0.8);
+    }
+    50%{
+        opacity: 1;
+        transform: scale(1.1);
+    }
+    100%{
+        opacity: 1;
+        transform: scale(1);
+    }
+}
