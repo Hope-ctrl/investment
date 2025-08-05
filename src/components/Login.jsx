@@ -35,7 +35,7 @@ const LoginPage = () => {
         }
         
         const response = await axios.post(
-          "http://localhost/LWI-backend/login.php",
+          "http://if0_3963700.infinityfreeapp.com/LWI-backend/login.php",
           formDetails,
           { headers: { "Content-Type": "application/json" } }
         );

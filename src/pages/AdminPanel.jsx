@@ -32,7 +32,7 @@ const AdminPanel = () => {
         try {
             console.log(transactionDetails)
             const response = await axios.post(
-                "http://localhost/LWI-backend/updateTransactions.php",
+                "http://if0_3963700.infinityfreeapp.com/LWI-backend/updateTransactions.php",
                 transactionDetails,
                 { headers: { "Content-Type" : "application/json" } }
             );

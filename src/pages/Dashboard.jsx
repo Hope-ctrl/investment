@@ -86,7 +86,7 @@ const Dashboard = () => {
 
       console.log("sending request deposit request");
       const depositResponse = await axios.post(
-        "http://localhost/LWI-backend/updateTransactions.php",
+        "http://if0_3963700.infinityfreeapp.com/LWI-backend/updateTransactions.php",
         deposit,
         { headers: { "Content-Type": "application/json" } }
       );
@@ -115,14 +115,14 @@ const Dashboard = () => {
       try {
         console.log("sending username:" + Username);
         const response = await axios.get(
-          "http://localhost/LWI-backend/getBalance.php",
+          "http://if0_3963700.infinityfreeapp.com/LWI-backend/getBalance.php",
           {
             params: { Username },
           }
         );
 
         const transactionResponse = await axios.get(
-          "http://localhost/LWI-backend/getTransactions.php",
+          "http://if0_3963700.infinityfreeapp.com/LWI-backend/getTransactions.php",
           {
             params: { Username },
           }
