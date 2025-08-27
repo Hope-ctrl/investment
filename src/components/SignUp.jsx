@@ -42,7 +42,7 @@ const SignUpPage = () => {
       console.log('sending request');
       try {
         const response = await axios.post(
-          "http://if0_3963700.infinityfreeapp.com/LWI-backend/signUp.php",
+          "http://localhost/LWI-backend/signUp.php",
           formDetails,
           { headers: { "Content-Type": "application/json" } }
         );

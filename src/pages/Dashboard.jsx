@@ -52,47 +52,43 @@ const Dashboard = () => {
       return;
     }
 
-    try {
+     try {
       setVerifying(true);
       try {
-        // getting the current date and time
-        const now = new Date();
-        const date = now.toLocaleDateString();
-        const time = now.toLocaleTimeString();
-
-        console.log(Username);
-
-        // sending email to the admin
-        await emailjs.send(
-          "service_1lfg48i",
-          "template_csx7vir",
+        const mailingResponse = await axios.post(
+          "http://localhost/LWI-backend/mailing.php",
           {
-            username: Username,
-            email: "adebara432@gmail.com",
-            amount: deposit.amount,
-            date: date,
-            time: time,
-            name: Username,
-          },
-          "P-Bbo5_RYv0oHd8eD"
+            to: "adebara432@gmail.com",
+            subject: "deposit request",
+            message: `<h2> ${username} has requested a deposit </h2> </br> <p>Amount: ${deposit.amount}</p>`
+          }
         );
-        setEmailSent(true);
-      } catch (emailError) {
-        console.error("Failed to send email:", emailError);
-        alert("payment could not be verified");
-      }
 
-      // checking if email is sent if true then the database will be updated and page refreshes
+        console.log("Mailing Response:", mailingResponse);
 
-      console.log("sending request deposit request");
+        if (mailingResponse.data.success) {
+
+          console.log("sending request deposit request");
       const depositResponse = await axios.post(
-        "http://if0_3963700.infinityfreeapp.com/LWI-backend/updateTransactions.php",
+        "http://localhost/LWI-backend/updateTransactions.php",
         deposit,
         { headers: { "Content-Type": "application/json" } }
       );
 
       alert(depositResponse.data.message);
       window.location.reload();
+
+        } else {
+          alert(mailingResponse.data.error);
+        }
+        setEmailSent(true);
+        setVerifying(false);
+      } catch (emailError) {
+        console.error("Failed to send email:", emailError);
+        alert("payment could not be verified");
+        setVerifying(false);
+      }
+
     } catch (error) {
       alert("deposit error: " + error.message);
       console.error("Deposit transaction error:", error);
@@ -115,14 +111,14 @@ const Dashboard = () => {
       try {
         console.log("sending username:" + Username);
         const response = await axios.get(
-          "http://if0_3963700.infinityfreeapp.com/LWI-backend/getBalance.php",
+          "http://localhost/LWI-backend/getBalance.php",
           {
             params: { Username },
           }
         );
 
         const transactionResponse = await axios.get(
-          "http://if0_3963700.infinityfreeapp.com/LWI-backend/getTransactions.php",
+          "http://localhost/LWI-backend/getTransactions.php",
           {
             params: { Username },
           }
